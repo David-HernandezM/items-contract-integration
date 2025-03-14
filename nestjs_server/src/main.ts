@@ -11,6 +11,11 @@ async function bootstrap() {
       transform: true,
     }),
   );
+  app.enableCors({
+    origin: 'http://localhost:3000',
+    methods: 'GET,POST,PUT,DELETE,OPTIONS,PATCH',
+    allowedHeaders: 'Content-Type,Authorization',
+  });
   await app.listen(process.env.PORT ?? 3000);
 
   process.on('SIGINT', async () => {

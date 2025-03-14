@@ -1,4 +1,4 @@
-import { GreenButton, YellowButton, RedButton } from "../ui/examples/buttons";
+import { ModifyItemButton, DeleteItemButton, AddItemButton } from "../ui/examples/buttons";
 import { State } from "../ui/examples/state";
 import { Header } from "../ui/header/header";
 
@@ -7,21 +7,22 @@ export default function Page() {
         <>
             <Header />
             <div
-                className="flex items-center justify-center mt-20"
+                className="flex flex-col items-center justify-center mt-20"
             >
-                <div
-                    className="flex items-center gap-2 m-auto"
+                <h1
+                    className="text-2xl font-semibold"
                 >
-                    <div
-                        className="flex flex-col gap-2"
-                    >
-                        <GreenButton />
-                        <YellowButton />
-                        <RedButton />
-                    </div>
-                    <div>
-                        <State />
-                    </div>
+                    Toury actions
+                </h1>
+                <div
+                    className="flex justify-center items-center gap-11 mt-7"
+                >
+                    <AddItemButton />
+                    <ModifyItemButton />
+                    <DeleteItemButton />
+                </div>
+                <div>
+                    <State />
                 </div>
             </div>
         </>

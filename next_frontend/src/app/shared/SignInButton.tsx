@@ -5,22 +5,24 @@ import React from "react";
 
 const SignInButton = () => {
   const { data: session } = useSession();
-  console.log('Las sesiones: ');
-    console.log(session);
-  console.log({ session });
 
   if (session && session.user)
     return (
       <div className="flex gap-4 ml-auto">
-        <p className="text-sky-600">{session.user.name}</p>
+        <Link
+          href={`user/${session.user.id}`}
+          className="text-sky-600"
+        >
+          {session.user.name}
+        </Link>
         <Link
           href={"/api/auth/signout"}
           className="flex gap-4 ml-auto text-red-600"
         >
-          Sign Out
+            Sign Out
         </Link>
       </div>
-    );
+);
 
   return (
     <div className="flex gap-4 ml-auto items-center">
@@ -41,3 +43,6 @@ const SignInButton = () => {
 };
 
 export default SignInButton;
+
+
+

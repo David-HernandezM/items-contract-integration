@@ -1,3 +1,4 @@
+import { HexString } from "@gear-js/api";
 import { 
     CONTRACT_ID, 
     IDL, 
@@ -12,7 +13,6 @@ import { SailsCalls } from 'sailscalls';
 
 @Injectable()
 export class SailscallsService implements OnModuleInit, OnModuleDestroy {
-    private shutdownListener: Subject<void> = new Subject();
     private sailsCalls: SailsCalls;
 
     sailsInstance() {
@@ -25,6 +25,31 @@ export class SailscallsService implements OnModuleInit, OnModuleDestroy {
 
     query() {
         return this.sailsCalls.query;
+    }
+
+    async checkVoucher(userAddress: HexString, voucherId: HexString) {
+        const voucherIsExpired = await this.sailsCalls.voucherIsExpired(
+            userAddress,
+            voucherId,
+        );
+
+        if (voucherIsExpired) {
+            await this.sailsCalls.renewVoucherAmountOfBlocks({
+                userAddress,
+                voucherId,
+                numOfBlocks: 1200, // 1200 blocks = 1 hour
+            })
+        }
+
+        const voucherBalance = await this.sailsCalls.voucherBalance(voucherId);
+
+        if (voucherBalance < 1) {
+            await this.sailsCalls.addTokensToVoucher({
+                userAddress,
+                voucherId,
+                numOfTokens: 1
+            });
+        }
     }
 
     async onModuleInit() {

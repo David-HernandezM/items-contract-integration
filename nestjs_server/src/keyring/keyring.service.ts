@@ -115,6 +115,7 @@ export class KeyringService {
 
     async keyringDataByAddress(keyringAddress: HexString) {
         const sailsCallsInstance = this.sailsService.sailsInstance();
+
         try {
             const response = await sailsCallsInstance.query({
                 serviceName: 'Signless',

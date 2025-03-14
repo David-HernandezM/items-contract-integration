@@ -20,6 +20,7 @@ export class RefreshJwtGuard implements CanActivate {
       const payload = await this.jwtService.verifyAsync(token, {
         secret: process.env.jwtRefreshTokenKey,
       });
+      
       request['user'] = payload;
     } catch {
       throw new UnauthorizedException();

@@ -5,7 +5,7 @@ export const INITIAL_VOUCHER_TOKENS: number = 2;
 export const NETWORK: string = 'wss://testnet.vara.network'
 export const SPONSOR_NAME: string = 'admindavid';
 export const SPONSOR_MNEMONIC: string = 'strong orchard plastic arena pyramid lobster lonely rich stomach label clog rubber';
-export const CONTRACT_ID: HexString = '0x7134e6bedb37c585a9939cc407bedeb9cf1d048310395bc061eafe920af415ef';
+export const CONTRACT_ID: HexString = '0xff6f121b83f0dfa1e870c4e11ff95f85d5a6a731ebca2750793ad2e791557833';
 export const IDL: string = `
     type Item = struct {
       name: str,
@@ -76,5 +76,4 @@ export const IDL: string = `
       query KeyringAddressFromUserAddress : (user_address: actor_id) -> KeyringQueryEvent;
       query KeyringAddressFromUserCodedName : (user_coded_name: str) -> KeyringQueryEvent;
     };
-
 `;

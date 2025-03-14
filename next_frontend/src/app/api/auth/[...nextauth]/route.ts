@@ -73,6 +73,14 @@ export const authOptions: NextAuthOptions = {
 
       return session;
     },
+
+    async redirect({url, baseUrl}) {
+      if (url === `${baseUrl}/api/auth/signout`) {
+        return url;
+      }
+
+      return url.startsWith(baseUrl) ? url : baseUrl;
+    }
   },
 };
 
