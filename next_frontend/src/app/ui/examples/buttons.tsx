@@ -21,14 +21,16 @@ export const AddItemButton = () => {
             return;
         }
 
+        console.log('Adding an item...');
+
         const response = await axios.post(
             `${Backend_URL}/contract/command/add-item`,
             {
-                itemId: 3,
+                itemId: 4,
                 address: session.user.id,
                 item: {
-                    name: 'item 3 tests',
-                    description: 'this is another item',
+                    name: 'item 4 tests',
+                    description: 'this is an item',
                     image: 'item imageee'
                 }
             },
@@ -38,6 +40,8 @@ export const AddItemButton = () => {
                 },
             }
         );
+
+        console.log('item added!');
     };
 
 
@@ -59,12 +63,14 @@ export const ModifyItemButton = () => {
             return;
         }
 
+        console.log('Updating an item...');
+
         const response = await axios.put(
             `${Backend_URL}/contract/command/edit-item`,
             {
-                itemId: 3,
+                itemId: 4,
                 item: {
-                    name: 'item with new data!',
+                    name: 'item with new data!!!!',
                     description: 'this is another item',
                     image: 'item imageee'
                 }
@@ -75,6 +81,8 @@ export const ModifyItemButton = () => {
                 },
             }
         );
+
+        console.log('Item updated!');
     };
     
     return (
@@ -95,6 +103,8 @@ export const DeleteItemButton = () => {
             return;
         }
 
+        console.log('Deleting an item...');
+
         const response = await axios.delete(
             `${Backend_URL}/contract/command/remove-item`,
             {
@@ -102,10 +112,12 @@ export const DeleteItemButton = () => {
                     Authorization: `Bearer ${session.backendTokens.accessToken}`,
                 },
                 data: {
-                    itemId: 3,
+                    itemId: 4,
                 },
             }
         );
+
+        console.log('item deleted!');
     };
 
     return (

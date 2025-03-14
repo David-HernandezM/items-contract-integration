@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tourii nextjs frontend
 
-## Getting Started
+The frontend contains a `.env` file, where you can find the nest base url and the next auth secret.
 
-First, run the development server:
+To install all dependencies, use:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm i
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To run in development mode, use the next command:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Frontend structure
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Middleware file (`src/middleware.ts`): The project contains a middleware to protect the routes that needs the user to log in first.
+- Api (`src/app/api`): Contains the next auth configuration (with JWT support and user and password).
+- Examples (`src/app/examples`): contains the page with the examples, it contains the calls to the keyring and tourii services (components).
+- lib (`src/app/lib`): Contains the server actions (actions, some of the calls are in the components), constants, data, next auth definitions, etc.
+- shared (`src/app/shared`): contains components that all components use.
+- signup (`src/app/signup`): Contains the page to sign up a new user
+- ui (`src/app/ui`): contains the components from the pages.
+- user (`src/app/user`): contains the page where the user can see their info.
