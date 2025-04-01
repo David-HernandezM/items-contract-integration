@@ -1,15 +1,7 @@
 'use client';
-// import { sendGreen, sendYellow, sendRed } from "@/app/lib/actions";
-import { fetchUserAddress } from "@/app/lib/data";
-import { redirect } from "next/navigation";
 import { useSession } from "next-auth/react";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import axios from "axios";
 import { Backend_URL } from "@/app/lib/Constants";
-
-interface Props {
-    messageSent: () => void,
-}
+import axios from "axios";
 
 const paddingButton = 15;
 

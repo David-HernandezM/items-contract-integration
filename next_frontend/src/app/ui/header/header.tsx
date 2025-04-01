@@ -1,8 +1,6 @@
-import { fetchUserAddress } from "@/app/lib/data";
-import { Suspense } from "react";
-import { LoginButton } from "../login-button/login-button";
-import { LoginButtonSkeleton } from "../skeletons/login-button-skeleton";
 import SignInButton from "@/app/shared/SignInButton";
+
+
 
 export const Header = async () => {
     return (
@@ -15,9 +13,6 @@ export const Header = async () => {
             </p>
         </div>
         <SignInButton />
-        {/* <Suspense key={'login-button-key'} fallback={<LoginButtonSkeleton />}>
-            <LoginButton />
-        </Suspense> */}
     </header>
   )
 }

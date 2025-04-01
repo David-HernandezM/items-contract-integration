@@ -1,11 +1,9 @@
 'use server';
 
-import axios from 'axios';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-import { resolve } from 'path';
 import { z } from 'zod';
-import { Backend_URL } from './Constants';
+import axios from 'axios';
 
 const LoginUserForm = z.object({
     username: z.string(),
@@ -43,7 +41,7 @@ export const loginUser = async (formData: FormData) => {
     });
 
     try {
-        const response = await axios.post('http://localhost:8000/auth/register', {username, password});
+        const response = await axios.post('http://localhost:8000/auth/login', {username, password});
         console.log(response.data);
     } catch (e) {
         console.log(e);

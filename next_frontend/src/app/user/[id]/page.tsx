@@ -42,7 +42,13 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
                     className="border-gray-300 border-4 rounded-md p-3"
                 >
                     <h2>
-                        Username: {session.user.name}                        
+                        Username: 
+                        {
+                            Object.keys(session.user).includes('googleName') 
+                            ? session.user.googleName
+                            : session.user.name
+
+                        }
                     </h2>
                     <p>
                         Address: {session.user.id}

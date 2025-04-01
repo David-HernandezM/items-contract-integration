@@ -13,7 +13,11 @@ const SignInButton = () => {
           href={`user/${session.user.id}`}
           className="text-sky-600"
         >
-          {session.user.name}
+          {
+            Object.keys(session.user).includes('googleName') 
+            ? session.user.googleName
+            : session.user.name
+          }
         </Link>
         <Link
           href={"/api/auth/signout"}

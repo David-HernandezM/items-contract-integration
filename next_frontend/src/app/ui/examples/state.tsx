@@ -31,10 +31,11 @@ export const State = () => {
                 className="flex"
             >
                 {
-                    items.map((item: any) => {
+                    items.map((item: any, index) => {
                         return (
                             <div
                                 className="border-gray-300 border-4 rounded-md p-3"
+                                key={index}
                             >
                                 <h2>
                                     Name: {item.name}

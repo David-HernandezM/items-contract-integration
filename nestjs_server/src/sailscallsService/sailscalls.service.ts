@@ -52,6 +52,23 @@ export class SailscallsService implements OnModuleInit, OnModuleDestroy {
         }
     }
 
+    // async sailsInstance() {
+    //     return await SailsCalls.new({
+    //         network: NETWORK,
+    //         voucherSignerData: {
+    //             sponsorMnemonic: SPONSOR_MNEMONIC,
+    //             sponsorName: SPONSOR_NAME
+    //         },
+    //         newContractsData: [
+    //             {
+    //                 contractName: 'traffic_light',
+    //                 address: CONTRACT_ID,
+    //                 idl: IDL
+    //             }
+    //         ]
+    //     });
+    // }
+
     async onModuleInit() {
         this.sailsCalls = await SailsCalls.new({
             network: NETWORK,
@@ -69,7 +86,6 @@ export class SailscallsService implements OnModuleInit, OnModuleDestroy {
         });
 
         console.log('Sailscalls service has been initialized.');
-        
     }
 
     async onModuleDestroy() {

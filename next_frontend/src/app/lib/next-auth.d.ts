@@ -3,6 +3,7 @@ import NextAuth from "next-auth";
 export interface User {
     name: string;
     id: string;
+    googleName?: string;
 }
 
 export interface BackendTokens {

@@ -33,7 +33,8 @@ export class KeyringService {
             newKeyringPair, 
             hashedPassword
         );
-        const formatedLockedKeyringPair = sailsInstance.modifyPairToContract(lockedKeyringPair);
+        // const formatedLockedKeyringPair = sailsInstance.modifyPairToContract(lockedKeyringPair);
+        const formatedLockedKeyringPair = sailsInstance.changeLockedKeyringPairForContract(lockedKeyringPair);
         let keyringVoucherId = '';
 
         try {
@@ -89,7 +90,8 @@ export class KeyringService {
         let lockedKeyringData;
 
         try {
-            lockedKeyringData = sailsCallsInstance.formatContractSignlessData(
+            // lockedKeyringData = sailsCallsInstance.formatContractSignlessData(
+            lockedKeyringData = sailsCallsInstance.changeModifiedLockedKeyringPairToOriginalState(
                 keyringData.keyringData,
                 username
             );
